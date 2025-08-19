@@ -1,16 +1,10 @@
-import { useForm } from "react-hook-form";
+import Link from "next/link"
 
-
-import CreateInput from "@/app/components/CreateInput"
-import CreateForm from "@/app/components/CreateForm"
-
-export default async function Page () {
-
-
+export default function Page () {
     return (
         <div>
-            <CreateForm />
-            <CreateInput />
+            <h1>Hello, this is the new page NEW</h1>
+            <Link href="/recipes/edit">Edit this recipe</Link>
         </div>
     )
 }
