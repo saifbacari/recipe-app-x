@@ -1,26 +1,10 @@
-import mongoose from 'mongoose' 
+import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
-    username: {
-        type: String,
+const UserSchema = new mongoose.Schema({
+  username: { type: String, required: true },
+  email:    { type: String, required: true, unique: true },
+  recipe_id:[{ type: mongoose.Schema.Types.ObjectId, ref: "Recipe", required: true }],
+  course_id:[{ type: mongoose.Schema.Types.ObjectId, ref: "Course", required: true }]
+}, { timestamps: true });
 
-    },
-    email: {
-        type: String,
-    },
-    recipe_id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Recipe',
-        required: true
-    },
-    course_id: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: 'Course',
-        required: true
-    },
-},{timestamps: true})
-
-
-const User = mongoose.model('User', userSchema)
-
-export default mongoose.models.User || mongoose.model('User', userSchema)
+export default mongoose.models.User || mongoose.model("User", UserSchema);
